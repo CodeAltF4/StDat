@@ -1,7 +1,7 @@
 # StDat
 
 This is a personal project.
-StDat is a student database system, far from complete at th moment.
+StDat is a student database system, far from complete at the moment.
 
 Inside the bin folder is the Main.py and other files used for changing, creating or searching in the database.
 
