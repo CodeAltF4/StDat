@@ -1,0 +1,6 @@
+--Editing the database--
+newStudent      | Adds a new student to the database
+
+--misc--
+exit            | Exits the program
+help            | Prints program help
