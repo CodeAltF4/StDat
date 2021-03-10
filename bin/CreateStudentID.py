@@ -22,7 +22,7 @@ class CreateStudent():
         wishToSave = input("\nDo you wish to save the student ID to the database? Y/N ").lower()
 
         if wishToSave == "y":
-            file = open("../assets/Database.txt", "a") # driectory
+            file = open("assets\\Database.txt", "a") # driectory
 
             file.write("\n")
             file.write("Name: " + self.lastName + ", " + self.firstName + "\n")
@@ -49,13 +49,13 @@ class CreateStudent():
 
     def checkID(self):
         try:
-            f = open("../assets/Database.txt", "rt") # directory
+            f = open("assets\\Database.txt", "rt") # directory
             f.close()
         except FileNotFoundError:
-            f = open("../assets/Database.txt", "a") # directory
+            f = open("assets\\Database.txt", "a") # directory
             f.close()
 
-        f =  open("../assets/Database.txt", "rt") # directory
+        f = open("assets\\Database.txt", "rt") # directory
         data = f.readlines()
 
         for line in data:
