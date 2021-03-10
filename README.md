@@ -1,14 +1,12 @@
 # DatSto5
 
 This is a personal project.
-DatSto5 is a student database system, far from complete at the moment.
+DatSto5 is a student database system, not complete at the moment, but still being worked on.
 
-Inside the bin folder is the Main.py and other files used for changing, creating or searching in the database.
+Inside the bin folder is files used for changing, creating or searching in the database.
 
-The DatSto5.py file is the main file which you start, it will ask for input and when an argument is given it wil start the Main.py with the arguments, when the task is done it should return back to the DatSto5.py file, except, the DatSto5.py file does not work.
+The DatSto5.py file is the main file which you start, it will ask for input and when an argument is given it wil start the appropriate file, when the task is done it should return back to the DatSto5.py file.
 
-If anyone has any better ideas on how to fix the issue and make it so that i do not have to type "python Main.py -argument" every time i want to do something, it would be greatly appreciated.
+I am allways open for ideas and things to improve the program.
 
-Later in time when the project is nearing completion, the database will not be stored in plain text.
-
-The DatSto5.py file is not in working use at the moment, working on making a better solution.
+Later in time when the project is nearing completion, the database will not be stored in plain text, rather in a SQlite database made with python.
