@@ -2,3 +2,4 @@ os
 random
 sys
 termcolor
+sqlite3
