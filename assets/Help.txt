@@ -1,5 +1,11 @@
 --Editing the database--
-newStudent      | Adds a new student to the database
+newUser         | Adds a new student to the database
+delUser         | Deletes a user from the database
+
+--Using the database--
+printData       | Prints the entire database
+userSearch      | Searches the database for the specified user
+
 
 --misc--
 exit            | Exits the program
