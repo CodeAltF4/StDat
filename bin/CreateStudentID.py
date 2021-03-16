@@ -1,37 +1,40 @@
 import random
+import sqlite3
+import os
+
+import bin.DatabaseEditor
 
 class CreateStudent():
-    def __init__(self, firstName, lastName, birthDate):
+    def __init__(self, firstName, lastName, dateOfBirth):
         self.firstName = firstName
         self.lastName = lastName
-        self.birthDate = birthDate
+        self.dateOfBirth = dateOfBirth
+
+        self.files = os.listdir("assets")
+        self.databaseName = "Database.db"
 
     def createStudentID(self):
         #creating email, ID and then checking if the ID allready exists
         email = self.firstName.capitalize() + self.lastName.capitalize() + "@school.com" #* replace @school.com with school name
 
+        if str(self.databaseName) not in self.files:
+            bin.DatabaseEditor.createDatabase()
+            print("File did not exist, created new one.")
+            return("File created")
+
         studentID = str(self.createID())
         self.studentID = studentID
 
         print(f"Name: {self.lastName}, {self.firstName}")
-        print(f"Date of birth: {self.birthDate}")
-        print(f"Class of: {self.birthDate[-4:]}")
+        print(f"Date of birth: {self.dateOfBirth}")
+        print(f"Class of: {self.dateOfBirth[-4:]}")
         print(f"Email: {email}")
         print(f"Student ID: {self.studentID}")
 
         wishToSave = input("\nDo you wish to save the student ID to the database? Y/N ").lower()
 
         if wishToSave == "y":
-            file = open("assets\\Database.txt", "a") # driectory
-
-            file.write("\n")
-            file.write("Name: " + self.lastName + ", " + self.firstName + "\n")
-            file.write("Date of birth: " + self.birthDate + "\n")
-            file.write("Class of: " + self.birthDate[-4:] + "\n")
-            file.write("Email: " + email + "\n")
-            file.write("Student ID: " + self.studentID)
-            file.write("\n")
-            file.close()
+            bin.DatabaseEditor.addUserToDatabase(self.firstName, self.lastName, self.dateOfBirth, self.dateOfBirth[-4:], email, self.studentID) #calling function in another file
 
         elif wishToSave == "n":
             None
@@ -43,37 +46,25 @@ class CreateStudent():
         self.studentID = studentID
         for i in range(6):
             num = random.randint(0, 9)
-            self.studentID += str(num)
-        self.checkID() # Checks the id
-        return self.studentID # if the id is not a duplicate it gets returned to the createStudentId method
 
-    def checkID(self):
-        try:
-            f = open("assets\\Database.txt", "rt") # directory
-            f.close()
-        except FileNotFoundError:
-            f = open("assets\\Database.txt", "a") # directory
-            f.close()
-
-        f = open("assets\\Database.txt", "rt") # directory
-        data = f.readlines()
-
-        for line in data:
-            if "Student ID: " + str(self.studentID) in line:
-                f.close()
-                print("Student is allready exists, creating new one.")
-
-                self.studentID = ""
-                for i in range(6):
+            #If the first number == 0
+            if len(studentID) == 0 and num == 0:
+                while True:
                     num = random.randint(0, 9)
-                    self.studentID += str(num)
-                self.checkID()
+                    if num != 0:
+                        break
 
-        return self.studentID
+            self.studentID += str(num)
+        IdAlreadyExists = bin.DatabaseEditor.checkID(self.studentID) # Checks the id
+        if IdAlreadyExists == False:
+            return self.studentID # if the id is not a duplicate it gets returned to the createStudentId method
+        else:
+            self.createID()
 
-def main(fName, lName, birthDate):
-    newUser = CreateStudent(fName, lName, birthDate)
+
+def main(fName, lName, dateOfBirth):
+    newUser = CreateStudent(fName, lName, dateOfBirth)
     newUser.createStudentID()
 
 if __name__ == "__main__":
-    main()
+    main("John", "Doe", "00/00/0000")
