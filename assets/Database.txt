@@ -1,6 +1,0 @@
-
-Name: student, test
-Date of birth: 00/00/0000
-Class of: 0000
-Email: TestStudent@school.com
-Student ID: 159538
