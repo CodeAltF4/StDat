@@ -119,6 +119,27 @@ class DatabaseEditor():
         else:
             cprint("ERROR: file does not exist", "red")
             return("Error")
+        
+    def checkID(self, studentID):
+        if str(self.databaseName) in self.files:
+            conn = sqlite3.connect("assets\\database.db")
+            c = conn.cursor()
+            
+            c.execute("SELECT * FROM database WHERE studentID == ?", (studentID,))
+            items = c.fetchall()
+            
+            if len(items != 0):
+                cprint("ID allready exists, generating new one", "red")
+                return True
+            else:
+                return False
+
+            conn.commit()
+            conn.close()
+            
+        else:
+            cprint("ERROR: file does not exist", "red")
+            return("Error")
 
 if __name__ == "__name__": 
     test = DatabaseEditor()
