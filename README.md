@@ -15,4 +15,4 @@ The DatSto5.py file is the main file which you start, it will ask for input and 
 
 Some bad solutions are in use, currently working on eliminating the bad solutions and replacing it with better code.
 
-I am allways open for ideas and things to improve the program.
+I am always open for ideas and things to improve the program.
