@@ -1,6 +1,10 @@
 # DatSto5
 
----The project is currently being completely rebuilt in a more manageable way for easier production later, maintenance, expandability, and readability. Therefore there might not be any releases in the coming weeks as all the code is being rewritten with object oriented programing.---
+---
+
+The project is currently being completely rebuilt in a more manageable way for easier production later, maintenance, expandability, and readability. Therefore there might not be any releases in the coming weeks as all the code is being rewritten with object oriented programing.
+
+---
 
 This is a personal project.
 DatSto5 is a student database system, currently in early development.
